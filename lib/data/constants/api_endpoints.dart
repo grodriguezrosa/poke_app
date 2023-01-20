@@ -13,5 +13,5 @@ class ApiEndpoints {
   ///`Get pokemon data`
   String getPokemonData({required String pokemonName}) => apiBase + '$pokemonName';
 
-  
+  String getPokemonImage({required int id}) => 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png';
 }
