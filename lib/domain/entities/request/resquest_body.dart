@@ -1,13 +1,14 @@
 import 'package:equatable/equatable.dart';
 
-import '../pokemon/data_pokemon_list.dart';
+import 'general_body_name_url.dart';
+
 
 class RequestBody extends Equatable {
   
   final int count;
   final String? next;
   final String? previous;
-  final List<DataPokemonList> dataPokemonList;
+  final List<GeneralBodyNameAndUrl> dataPokemonList;
 
   const RequestBody({
     required this.count,

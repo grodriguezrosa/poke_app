@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import '../models/request/request_body_model.dart';
 
 abstract class PokemonDataSource {
-  Future<RequestBody> fetchPokemonList();
+  Future<RequestBody> fetchPokemonList({String? url});
 }
 
 class PokemonDataSourceImpl extends PokemonDataSource {
@@ -21,9 +21,9 @@ class PokemonDataSourceImpl extends PokemonDataSource {
   });
   
   @override
-  Future<RequestBody> fetchPokemonList() async {
+  Future<RequestBody> fetchPokemonList({String? url}) async {
     return await _fetchPokemonList(
-      url: apiEndpoints.fetchPokemonList
+      url: url ?? apiEndpoints.fetchPokemonList
     );
   }
 

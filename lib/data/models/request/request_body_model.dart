@@ -1,6 +1,6 @@
-import 'package:poke_app/data/models/pokemons/data_pokemon_list_model.dart';
+import 'package:poke_app/data/models/request/general_body_name_url.dart';
 
-import '../../../domain/entities/pokemon/data_pokemon_list.dart';
+import '../../../domain/entities/request/general_body_name_url.dart';
 import '../../../domain/entities/request/resquest_body.dart';
 
 class RequestBodyModel extends RequestBody {
@@ -9,7 +9,7 @@ class RequestBodyModel extends RequestBody {
     required int count, 
     String? next, 
     String? previous, 
-    required List<DataPokemonList> dataPokemonList
+    required List<GeneralBodyNameAndUrl> dataPokemonList
   }) : super(
     count: count,
     next: next,
@@ -18,11 +18,11 @@ class RequestBodyModel extends RequestBody {
   );
 
   factory RequestBodyModel.fromJson(Map<String, dynamic> json) {
-    List<DataPokemonList>? pokeList;
+    List<GeneralBodyNameAndUrl>? pokeList;
     if(json['results'] != null) {
       pokeList = [];
       json['results'].forEach((v) {
-        pokeList!.add(DataPokemonListModel.fromJson(v));
+        pokeList!.add(GeneralBodyNameAndUrlModel.fromJson(v));
       });
     }
     return RequestBodyModel(

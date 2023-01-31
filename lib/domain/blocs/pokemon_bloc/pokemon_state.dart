@@ -1,18 +1,20 @@
 part of 'pokemon_bloc.dart';
 
-abstract class PokemonState extends Equatable {
-  const PokemonState();
+abstract class PokemonState {
+  final PokemonStateData stateData;
+
+  const PokemonState({required PokemonStateData? stateData})
+      : stateData = stateData ?? const PokemonStateData();
+
+  PokemonState copyWith({required PokemonStateData? stateData});
+}
+
+class PokemonInitialState extends PokemonState {
+  PokemonInitialState({required PokemonStateData? stateData})
+      : super(stateData: stateData);
 
   @override
-  List<Object> get props => [];
+  PokemonState copyWith({required PokemonStateData? stateData}) {
+    return PokemonInitialState(stateData: stateData);
+  }
 }
-
-class PokemonInitialState extends PokemonState {}
-
-class FechedPokemonsState extends PokemonState {
-  final List<DataPokemonList> pokemonDataList;
-
-  const FechedPokemonsState({required this.pokemonDataList});
-}
-
-class FailedToFetchPokemonList extends PokemonState {}

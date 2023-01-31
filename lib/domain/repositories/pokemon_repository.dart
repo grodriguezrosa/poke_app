@@ -5,5 +5,5 @@ import '../entities/request/resquest_body.dart';
 
 abstract class PokemonRepository {
   
-  Future<Either<Failure, RequestBody>> fetchPokemonList();
+  Future<Either<Failure, RequestBody>> fetchPokemonList({String? url});
 }
