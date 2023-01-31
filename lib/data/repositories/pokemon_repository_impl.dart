@@ -15,9 +15,9 @@ class PokemonRepositoryImpl extends PokemonRepository {
   PokemonRepositoryImpl({required this.pkmDataSource});
 
   @override
-  Future<Either<Failure, RequestBody>> fetchPokemonList() async {
+  Future<Either<Failure, RequestBody>> fetchPokemonList({String? url}) async {
     try {
-      final fetchPokemonList = await pkmDataSource.fetchPokemonList();
+      final fetchPokemonList = await pkmDataSource.fetchPokemonList(url: url);
       return Right(fetchPokemonList);
     } on ServerException {
       return Left(ServerFailure());

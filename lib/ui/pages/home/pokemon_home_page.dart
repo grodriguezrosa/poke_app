@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di/dependency_injector.dart';
 import '../../../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
+import '../../../domain/entities/states/pokemon_state_data.dart';
 import '../../widgets/loader_widget.dart';
+import 'pokemon_list.dart';
 
 class PokemonHomePage extends StatelessWidget {
   const PokemonHomePage({super.key});
@@ -15,15 +17,10 @@ class PokemonHomePage extends StatelessWidget {
       child: Scaffold(
         body: BlocBuilder<PokemonBloc, PokemonState>(
           builder: (context, state) {
-            if (state is PokemonInitialState) {
+            if(state.stateData.pokemonStatus == PokemonStatus.initial) {
               return const LoaderWidget();
-            } else if (state is FechedPokemonsState) {
-              return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: state.pokemonDataList.length,
-                  itemBuilder: (context, i) {
-                    return Text(state.pokemonDataList[i].name);
-                  });
+            } else if(state.stateData.pokemonStatus == PokemonStatus.succes) {
+              return PokemonList(state: state);
             } else {
               return const Center(child: Text('data error'));
             }
