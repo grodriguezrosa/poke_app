@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/cupertino.dart';
 
-import '../../pages/home/pokemon_home_page.dart';
+import '../../pages/home/home_page.dart';
 import '../../pages/splash/splash_page.dart';
 import 'routes_name.dart';
 
@@ -20,7 +22,7 @@ class AppRouterProvider {
         page = CupertinoPageRoute(builder: (_) => const SplashPage());
       break;
       case Routes.pokemonList:
-        page = CupertinoPageRoute(builder: (_) => const PokemonHomePage());
+        page = CupertinoPageRoute(builder: (_) => const HomePage());
       break;
       default:
         page = CupertinoPageRoute(builder: (_) => const SplashPage());

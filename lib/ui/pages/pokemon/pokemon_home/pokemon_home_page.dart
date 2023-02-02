@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../di/dependency_injector.dart';
-import '../../../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
-import '../../../domain/entities/states/pokemon_state_data.dart';
-import '../../widgets/loader_widget.dart';
-import 'pokemon_list.dart';
+import '../../../../di/dependency_injector.dart';
+import '../../../../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
+import '../../../../domain/entities/states/pokemon_state_data.dart';
+import '../../../widgets/loaders/loader_widget.dart';
+import 'widgets/pokemon_list.dart';
 
 class PokemonHomePage extends StatelessWidget {
   const PokemonHomePage({super.key});
