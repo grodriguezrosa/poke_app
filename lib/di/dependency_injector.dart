@@ -6,6 +6,7 @@ import 'package:poke_app/data/constants/api_endpoints.dart';
 
 import '../data/data_sources/pokemon_data_source.dart';
 import '../data/repositories/pokemon_repository_impl.dart';
+import '../domain/blocs/bottom_navigation_bloc/bottom_navigation_bloc.dart';
 import '../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
 import '../domain/repositories/pokemon_repository.dart';
 import '../domain/usecase/fetch_pokemon_list.dart';
@@ -22,6 +23,7 @@ Future<void> init() async {
   ..registerFactory(() => PokemonBloc(
     fetchPokemonListUseCase: sl(),
   ))
+  ..registerFactory(() => BottomNavigationBloc())
 
   //UseCase
   ..registerLazySingleton(() => FetchPokemonListUseCase(repository: sl()))

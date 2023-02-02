@@ -7,7 +7,6 @@ part 'items_state.dart';
 class ItemsBloc extends Bloc<ItemsEvent, ItemsState> {
   ItemsBloc() : super(ItemsInitial()) {
     on<ItemsEvent>((event, emit) {
-      // TODO: implement event handler
     });
   }
 }

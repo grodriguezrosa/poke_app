@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
+import '../../../../../domain/blocs/pokemon_bloc/pokemon_bloc.dart';
 
 class PokemonCard extends StatelessWidget {
   final PokemonState state;
@@ -14,9 +14,6 @@ class PokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final size = MediaQuery.of(context).size;
-
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
       width: double.infinity,

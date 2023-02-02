@@ -30,7 +30,7 @@ class SimpleBlocObserver extends BlocObserver {
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await runZonedGuarded(() async {
-    BlocOverrides.runZoned(() => app.launch());
+    BlocOverrides.runZoned(() => app.launch(), blocObserver: SimpleBlocObserver());
   }, (error, stack) {
     dev.log('$error', name: 'PokeApp', error: error, stackTrace: stack);
   });
